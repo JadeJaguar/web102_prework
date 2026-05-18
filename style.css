@@ -1,17 +1,28 @@
 @import url('https://fonts.googleapis.com/css2?family=Cabin:wght@400;500;600;700&display=swap');
 
+/* smooth-scroll when an anchor link (#welcome, #stats, #our-games) is clicked */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Deep Ocean palette: deep navy background, teal accents, off-white text */
 body {
     font-family: 'Cabin';
-    background-color: #758190;
+    background-color: #0a2540;
+    color: #ecf0f1;
+    /* bump the base size from the default 16px -> 18px; all `em` sizes scale with this */
+    font-size: 18px;
+    line-height: 1.5;
 }
 
 #tentacles {
     width: 50px;
 }
 
+/* main header: teal banner with a large, bold, spaced-out title */
 .header {
     display: flex;
-    background-color: lightblue;
+    background-color: #1abc9c;
     padding: 1%;
     align-items: center;
     margin-left: -10px;
@@ -19,12 +30,69 @@ body {
     margin-top: -10px;
 }
 
-.stats-container {
-    display: flex;
+.header-text {
+    font-size: 3em;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: #ffffff;
 }
 
+/* sticky nav bar: pinned darker-teal strip, sits below header */
+#nav-bar {
+    position: sticky;
+    top: 0;
+    background-color: #16a085;
+    padding: 12px;
+    display: flex;
+    gap: 24px;
+    /* z-index keeps the nav above game cards as they scroll underneath */
+    z-index: 100;
+    margin-left: -10px;
+    margin-right: -10px;
+}
+
+#nav-bar a {
+    text-decoration: none;
+    color: #ffffff;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+#nav-bar a:hover {
+    color: #0a2540;
+}
+
+/* section headings: teal, slightly underlined, clearly mark each section */
+h2 {
+    font-size: 2.4em;
+    font-weight: 600;
+    color: #1abc9c;
+    border-bottom: 3px solid #1abc9c;
+    padding-bottom: 8px;
+    margin-top: 30px;
+}
+
+/* description paragraph: italic body text with teal bold numbers */
+#description-container p {
+    font-size: 1.3em;
+    font-style: italic;
+    line-height: 1.6;
+}
+
+#description-container strong {
+    font-style: normal;
+    font-weight: 700;
+    color: #1abc9c;
+}
+
+.stats-container {
+    display: flex;
+    align-items: center;
+}
+
+/* stats cards: midnight-blue tiles with big bold numbers and small uppercase labels */
 .stats-card {
-    background-color: #a8b0bc;
+    background-color: #14375e;
     border-radius: 7px;
     padding: 1%;
     margin: 1%;
@@ -32,8 +100,24 @@ body {
     text-align: center;
 }
 
+.stats-card h3 {
+    font-size: 1.05em;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #1abc9c;
+}
+
+.stats-card:hover {
+    cursor: pointer;
+    box-shadow: 0 0 30px #1abc9c;
+}
+
+/* the giant headline numbers in the stats row */
 #num-contributions, #total-raised, #num-games {
-    font-size: 50px;
+    font-size: 72px;
+    font-weight: 700;
+    color: #ffffff;
 }
 
 #games-container {
@@ -45,11 +129,13 @@ body {
 .game-img {
     width: 100%;
     border-radius: 5px;
-    box-shadow: 0 0 10px #FFFFFF;
+    box-shadow: 0 0 10px #1abc9c;
 }
 
+/* game cards stay white so the artwork looks clean; text is dark on white */
 .game-card {
     background-color: #FFFFFF;
+    color: #0a2540;
     padding: 1%;
     margin: 1%;
     width: 300px;
@@ -57,9 +143,19 @@ body {
     border-radius: 7px;
 }
 
+/* override the global h2 rule so game titles inside cards look like card titles, not page headings */
+.game-card h2 {
+    font-size: 1.5em;
+    font-weight: 700;
+    color: #0a2540;
+    border-bottom: none;
+    padding-bottom: 0;
+    margin-top: 10px;
+}
+
 .game-card:hover {
     cursor: pointer;
-    box-shadow: 0 0 30px lightblue;
+    box-shadow: 0 0 30px #1abc9c;
 }
 
 #button-container {
@@ -68,8 +164,43 @@ body {
 
 button {
     font-family: 'Cabin';
+    background-color: #1abc9c;
+    color: #ffffff;
+    font-weight: 600;
     border: none;
-    padding: 1%;
+    padding: 10px 20px;
     margin: 1%;
     border-radius: 7px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #16a085;
+}
+
+/* search input lives in the same row as the filter buttons */
+#search-input {
+    font-family: 'Cabin';
+    padding: 12px 16px;
+    margin: 1%;
+    border: 2px solid #1abc9c;
+    border-radius: 7px;
+    width: 280px;
+    font-size: 16px;
+    background-color: #14375e;
+    color: #ecf0f1;
+}
+
+#search-input::placeholder {
+    color: #7f8fa6;
+}
+
+/* shown when the search query matches zero games */
+.no-results {
+    width: 100%;
+    text-align: center;
+    font-size: 1.2em;
+    color: #1abc9c;
+    padding: 40px;
+    font-style: italic;
 }
