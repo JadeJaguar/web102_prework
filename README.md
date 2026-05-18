@@ -32,6 +32,7 @@ Here's a walkthrough of implemented features:
     edit README on github -->
 
 https://github.com/user-attachments/assets/a79bc3d8-df5a-49f6-b5d7-5df3ddc4b806
+
 [Click here to watch the walkthrough video](assets/WEB102_Prework_walkthrough.mp4)
 
 Video recorded with Zoom.
